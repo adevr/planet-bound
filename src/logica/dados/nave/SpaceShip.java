@@ -3,7 +3,7 @@ package logica.dados.nave;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-abstract class SpaceShip {
+public abstract class SpaceShip {
 
     private Integer fuel;
     private Integer weapons;
