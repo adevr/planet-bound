@@ -2,7 +2,7 @@ package logica.dados.evento;
 
 import logica.dados.nave.SpaceShip;
 
-abstract class Event
+public abstract class Event
 {
 
     private SpaceShip ship;
