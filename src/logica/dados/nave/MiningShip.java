@@ -5,10 +5,25 @@ import java.util.HashMap;
 public class MiningShip extends SpaceShip
 {
 
-    public MiningShip(Integer fuel, Integer weapons, Integer shield, HashMap<String, Number> cargo)
+    public MiningShip()
     {
-        super(fuel, weapons, shield, cargo);
+        super();
+        this.setFuel(53);
+        this.setWeapons(1);
+        this.setCargo(this.initialCargo());
+        this.setShield(1);
     }
+
+    private HashMap initialCargo()
+    {
+        HashMap<String, Number> emptyCargo = new HashMap<String, Number>();
+        for (int i = 1; i < 3; i++) {
+            emptyCargo.put(Integer.toString(i), 0);
+        }
+
+        return emptyCargo;
+    }
+
 
 
 }
