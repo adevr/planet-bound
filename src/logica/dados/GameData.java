@@ -19,16 +19,12 @@ public class GameData
 
     private void registerEvents()
     {
-        events.add(new AsteroidEvent(selectedShip));
         events.add(new CrewDeathEvent(selectedShip));
         events.add(new SalvageShipEvent(selectedShip));
         events.add(new CargoLossEvent(selectedShip));
         events.add(new FuelLossEvent(selectedShip));
         events.add(new NoneEvent(selectedShip));
-        events.add(new AlienAttackEvent(selectedShip));
         events.add(new CrewRescueEvent(selectedShip));
-        events.add(new LostEvent(selectedShip));
-        events.add(new StrongAlienAttack(selectedShip));
     }
 
     private void registerShips()
