@@ -12,6 +12,6 @@ public abstract class Event
         this.ship = ship;
     }
 
-    abstract void handle();
+    public abstract void handle();
 
 }

@@ -11,6 +11,5 @@ public class CargoLossEvent extends Event
 
     @Override
     public void handle() {
-
     }
 }
