@@ -37,4 +37,9 @@ public class EstadoAdapter implements IEstado, Serializable {
     public IEstado gameOver() {
         return this;
     }
+
+    @Override
+    public IEstado doEvent() {
+        return this;
+    }
 }

@@ -5,4 +5,5 @@ public interface IEstado {
     IEstado startGame();
     IEstado play();
     IEstado gameOver();
+    IEstado doEvent();
 }
