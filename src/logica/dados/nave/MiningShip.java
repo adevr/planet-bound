@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class MiningShip extends SpaceShip
 {
+    public String name = "Mining Ship";
 
     public MiningShip()
     {
@@ -12,9 +13,10 @@ public class MiningShip extends SpaceShip
         this.setWeapons(1);
         this.setCargo(this.initialCargo());
         this.setShield(1);
+        this.setName(name);
     }
 
-    private HashMap initialCargo()
+    private HashMap<String, Number> initialCargo()
     {
         HashMap<String, Number> emptyCargo = new HashMap<String, Number>();
         for (int i = 1; i < 3; i++) {
@@ -23,7 +25,6 @@ public class MiningShip extends SpaceShip
 
         return emptyCargo;
     }
-
 
 
 }

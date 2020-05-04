@@ -5,7 +5,7 @@ import java.util.HashMap;
 public abstract class SpaceShip {
 
     private String[] OFFICERS = {"Captain", "Navigation", "Landing Party", "Shields", "Weapons", "Cargo"};
-
+    private String name;
     private Integer fuel;
     private Integer weapons;
     private Integer shield;
@@ -14,6 +14,7 @@ public abstract class SpaceShip {
 
     public SpaceShip()
     {
+        this.name = "";
         this.fuel = 0;
         this.weapons = 0;
         this.shield = 0;
@@ -63,5 +64,13 @@ public abstract class SpaceShip {
         for (int i = 0; i < OFFICERS.length; i++) {
             this.crew.put(i, OFFICERS[i]);
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

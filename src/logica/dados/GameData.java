@@ -7,14 +7,15 @@ import logica.dados.nave.*;
 
 public class GameData
 {
-
     List<Event> events;
     List<SpaceShip> ships;
-    SpaceShip selectedShip;
+
+    private int numActiveShip = 1;
 
     public GameData()
     {
         this.registerEvents();
+        this.registerShips();
     }
 
     private void registerEvents()
@@ -31,6 +32,27 @@ public class GameData
     {
         ships.add(new MilitaryShip());
         ships.add(new MiningShip());
+    }
+
+    public List<Event> getEvents()
+    {
+        return events;w
+    }
+
+    public List<SpaceShip> getShips()
+    {
+        return ships;
+    }
+
+    public SpaceShip getActiveSpaceShip()
+    {
+        return ships.get(numActiveShip-1);
+    }
+
+    public SpaceShip setActiveSpaceShip(int spaceShip)
+    {
+        this.numActiveShip = spaceShip;
+        return getActiveSpaceShip();
     }
 
 }
