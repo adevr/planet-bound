@@ -1,14 +1,19 @@
 package logica.dados;
 
 import java.util.List;
+import java.util.Random;
 
 import logica.dados.evento.*;
 import logica.dados.nave.*;
+import logica.dados.planet.Planet;
+import logica.dados.planet.RedPlanet;
+import logica.dados.planet.WhitePlanet;
 
 public class GameData
 {
     List<Event> events;
     List<SpaceShip> ships;
+    Planet planet;
 
     private int numActiveShip = 1;
 
@@ -16,16 +21,17 @@ public class GameData
     {
         this.registerEvents();
         this.registerShips();
+        this.planet = generateRandomPlanet();
     }
 
     private void registerEvents()
     {
-        events.add(new CrewDeathEvent(selectedShip));
-        events.add(new SalvageShipEvent(selectedShip));
-        events.add(new CargoLossEvent(selectedShip));
-        events.add(new FuelLossEvent(selectedShip));
-        events.add(new NoneEvent(selectedShip));
-        events.add(new CrewRescueEvent(selectedShip));
+        events.add(new CrewDeathEvent(getActiveSpaceShip()));
+        events.add(new SalvageShipEvent(getActiveSpaceShip()));
+        events.add(new CargoLossEvent(getActiveSpaceShip()));
+        events.add(new FuelLossEvent(getActiveSpaceShip()));
+        events.add(new NoneEvent(getActiveSpaceShip()));
+        events.add(new CrewRescueEvent(getActiveSpaceShip()));
     }
 
     private void registerShips()
@@ -36,7 +42,7 @@ public class GameData
 
     public List<Event> getEvents()
     {
-        return events;w
+        return events;
     }
 
     public List<SpaceShip> getShips()
@@ -55,4 +61,16 @@ public class GameData
         return getActiveSpaceShip();
     }
 
+    public Planet generateRandomPlanet()
+    {
+        int r = new Random().nextInt(100);
+
+        if(r < 71) return new WhitePlanet(getActiveSpaceShip());
+        return new RedPlanet(getActiveSpaceShip());
+    }
+
+    public Planet getPlanet()
+    {
+        return this.planet;
+    }
 }
