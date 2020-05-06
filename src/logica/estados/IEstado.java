@@ -6,4 +6,5 @@ public interface IEstado {
     IEstado play();
     IEstado gameOver();
     IEstado doEvent();
+    IEstado selectPlanetAction();
 }
