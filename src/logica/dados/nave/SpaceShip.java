@@ -1,10 +1,13 @@
 package logica.dados.nave;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 public abstract class SpaceShip {
 
     private String[] OFFICERS = {"Captain", "Navigation", "Landing Party", "Shields", "Weapons", "Cargo"};
+    public boolean isGanhou;
+
     private String name;
     private Integer fuel;
     private Integer weapons;
@@ -72,5 +75,19 @@ public abstract class SpaceShip {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setGanhou()
+    {
+        if(isEmptyCargo()) this.isGanhou = false;
+        this.isGanhou = true;
+    }
+
+    private boolean isEmptyCargo()
+    {
+        int cargoQty = 0;
+        for (Entry<String, Number> cargo: this.getCargo().entrySet()) cargoQty += (int) cargo.getValue();
+
+        return cargoQty == 0;
     }
 }

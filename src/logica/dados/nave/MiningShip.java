@@ -25,6 +25,4 @@ public class MiningShip extends SpaceShip
 
         return emptyCargo;
     }
-
-
 }
