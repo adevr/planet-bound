@@ -12,6 +12,6 @@ public class FuelLossEvent extends Event
     @Override
     public void handle()
     {
-
+        this.ship.setFuel(this.ship.getFuel()-1);
     }
 }

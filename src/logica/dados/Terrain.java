@@ -5,19 +5,23 @@ import logica.dados.nave.SpaceShip;
 public class Terrain {
 
     private final Resource resource;
+    Alien al;
     SpaceShip spaceShip;
     public String[] resourceTypes = {"Artifact", "Fuel", "Energy Shield", "Ammo"};
-    public int[] landingPosition;
+    public int[] spaceshipPosition;
     public int[] resourcePosition;
+    public int[] alienPosition;
 
-    public String[][] terrainMatrix = new String[6][6];
+    public Object[][] terrainMatrix = new Object[6][6];
 
     public Terrain(SpaceShip spaceShip)
     {
         this.resource = this.randomGeneratedResource();
-        this.landingPosition = this.generateRandomPosition();
+        this.spaceshipPosition = this.generateRandomPosition();
         this.resourcePosition = this.generateRandomPosition();
+        this.alienPosition = this.generateRandomPosition();
         this.spaceShip = spaceShip;
+        this.al = new Alien();
         buildTerrainMatrix();
     }
 
@@ -40,11 +44,6 @@ public class Terrain {
         return resource;
     }
 
-    public int[] getLandingPosition()
-    {
-        return this.landingPosition;
-    }
-
     public int[] getResourcePosition()
     {
         return this.resourcePosition;
@@ -52,10 +51,31 @@ public class Terrain {
 
     private void buildTerrainMatrix()
     {
-        int[] shipPos = this.landingPosition;
-        int[] resPos = this.landingPosition;
-        this.terrainMatrix[shipPos[0]][shipPos[1]] = "S";
-        this.terrainMatrix[resPos[0]][resPos[1]] = this.resource.getNome().substring(0, 1);
+        int[] shipPos = this.spaceshipPosition;
+        int[] resPos = this.resourcePosition;
+        int[] alPos = this.alienPosition;
+        this.terrainMatrix[shipPos[0]][shipPos[1]] = this.spaceShip;
+        this.terrainMatrix[resPos[0]][resPos[1]] = this.resource;
+        this.terrainMatrix[alPos[0]][alPos[1]] = this.al;
+    }
+
+    public boolean relocateSpaceShip(int x, int y)
+    {
+        if(this.spaceshipPosition[0] > x || this.spaceshipPosition[1] > y){
+            this.spaceshipPosition = new int[]{x, y};
+            return true;
+        }
+        return false;
+    }
+
+    public int[] getShipPosition()
+    {
+        return this.spaceshipPosition;
+    }
+
+    public int[] getAlienPosition()
+    {
+        return this.alienPosition;
     }
 
 }

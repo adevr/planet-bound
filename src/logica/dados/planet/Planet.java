@@ -15,7 +15,13 @@ public abstract class Planet {
     }
 
 
+    public Terrain getTerrain() {
+        return terrain;
+    }
 
+    public SpaceShip getSpaceShip() {
+        return spaceShip;
+    }
 
     // a ideia passa por ter uma comparação de instance of no estado
     // será muito por ai a abordagem

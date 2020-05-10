@@ -11,6 +11,7 @@ public class CrewDeathEvent extends Event
 
     @Override
     public void handle() {
-
+        int officer = (int) (Math.random() * ((5 - 0) + 1));
+        this.ship.getCrew().remove(officer);
     }
 }

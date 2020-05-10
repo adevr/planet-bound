@@ -24,7 +24,7 @@ public class EstadoAdapter implements IEstado, Serializable {
     }
 
     @Override
-    public IEstado startGame() {
+    public IEstado spaceTravel() {
         return this;
     }
 
@@ -42,4 +42,20 @@ public class EstadoAdapter implements IEstado, Serializable {
     public IEstado doEvent() {
         return this;
     }
+
+    @Override
+    public IEstado selectPlanetAction() {
+        return this;
+    }
+
+    @Override
+    public IEstado move(int x, int y) {
+        return this;
+    }
+
+    @Override
+    public IEstado doAction(int action) {
+        return this;
+    }
+
 }

@@ -83,11 +83,17 @@ public abstract class SpaceShip {
         this.isGanhou = true;
     }
 
-    private boolean isEmptyCargo()
+    public boolean isEmptyCargo()
     {
         int cargoQty = 0;
         for (Entry<String, Number> cargo: this.getCargo().entrySet()) cargoQty += (int) cargo.getValue();
 
         return cargoQty == 0;
+    }
+
+    public boolean hasCrewDeath()
+    {
+        if(this.crew.size() < 6) return true;
+        return false;
     }
 }

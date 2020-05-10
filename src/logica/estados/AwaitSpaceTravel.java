@@ -9,5 +9,9 @@ public class AwaitSpaceTravel extends EstadoAdapter
     {
         super(data);
     }
-    
+
+    @Override
+    public IEstado spaceTravel() {
+        return new AwaitEvent(getGameData());
+    }
 }

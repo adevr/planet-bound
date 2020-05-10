@@ -3,9 +3,17 @@ package logica.estados;
 import logica.dados.GameData;
 
 public class AwaitStationDocking extends EstadoAdapter{
-    public AwaitStationDocking(GameData data)
+
+    private int action;
+
+    public AwaitStationDocking(GameData data, int action)
     {
         super(data);
+        this.action = action;
     }
 
+    @Override
+    public IEstado doAction(int action) {
+
+    }
 }

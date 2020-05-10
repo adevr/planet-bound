@@ -5,7 +5,7 @@ import logica.dados.nave.SpaceShip;
 public abstract class Event
 {
 
-    private SpaceShip ship;
+    public SpaceShip ship;
 
     public Event(SpaceShip ship)
     {

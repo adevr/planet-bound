@@ -73,4 +73,19 @@ public class GameData
     {
         return this.planet;
     }
+
+    public int[] move(int x, int y)
+    {
+        SpaceShip ship = getActiveSpaceShip();
+        int[] lastPosition = getPlanet().getTerrain().getShipPosition();
+
+        if(x < 0 || x >= 6 || y < 0 || y >= 6)
+            return lastPosition;
+
+        if(getPlanet().getTerrain().relocateSpaceShip(x, y))
+            return getPlanet().getTerrain().getShipPosition();
+
+        return lastPosition;
+    }
+
 }
