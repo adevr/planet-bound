@@ -62,7 +62,9 @@ public class Terrain {
     public boolean relocateSpaceShip(int x, int y)
     {
         if(this.spaceshipPosition[0] > x || this.spaceshipPosition[1] > y){
+            this.terrainMatrix[this.spaceshipPosition[0]][this.spaceshipPosition[1]] = null;
             this.spaceshipPosition = new int[]{x, y};
+            this.terrainMatrix[x][y] = this.spaceShip;
             return true;
         }
         return false;
