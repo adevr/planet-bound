@@ -14,6 +14,7 @@ public abstract class SpaceShip {
     private Integer shield;
     private HashMap<String, Number> cargo;
     private HashMap<Number, String> crew;
+    private Boolean resourceConvertionStatus;
 
     public SpaceShip()
     {
@@ -95,5 +96,10 @@ public abstract class SpaceShip {
     {
         if(this.crew.size() < 6) return true;
         return false;
+    }
+
+    public boolean isResourceConverted()
+    {
+        return this.resourceConvertionStatus;
     }
 }

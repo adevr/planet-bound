@@ -17,11 +17,8 @@ public class AwaitEvent extends EstadoAdapter
     @Override
     public IEstado doEvent()
     {
-        SpaceShip ship = getGameData().getActiveSpaceShip();
-        List<Event> events = getGameData().getEvents();
-        int randomPosition = (int) (Math.random() * ((5 - 0) + 1));
-
-        events.get(randomPosition).handle();
-        return new OrbitPlanet(getGameData());
+        if(getGameData().isEventDone()) {
+            return new OrbitPlanet(getGameData());
+        }
     }
 }

@@ -8,4 +8,12 @@ public class AwaitResourceConversion extends EstadoAdapter
     {
         super(data);
     }
+
+    @Override
+    public IEstado convertResource()
+    {
+        if(getGameData().getActiveSpaceShip().isResourceConverted()){
+            return new OrbitPlanet(getGameData());
+        }
+    }
 }

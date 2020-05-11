@@ -9,4 +9,6 @@ public interface IEstado {
     IEstado selectPlanetAction();
     IEstado move(int x, int y);
     IEstado doAction(int action);
+    IEstado convertResource();
+    IEstado doAlienAttack();
 }

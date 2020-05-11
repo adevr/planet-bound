@@ -80,4 +80,9 @@ public class Terrain {
         return this.alienPosition;
     }
 
+    public Alien getAlien()
+    {
+        return this.al;
+    }
+
 }

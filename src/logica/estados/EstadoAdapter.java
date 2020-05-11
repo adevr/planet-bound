@@ -58,4 +58,13 @@ public class EstadoAdapter implements IEstado, Serializable {
         return this;
     }
 
+    @Override
+    public IEstado convertResource() {
+        return this;
+    }
+
+    @Override
+    public IEstado doAlienAttack() {
+        return this;
+    }
 }

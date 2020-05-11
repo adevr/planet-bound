@@ -14,6 +14,7 @@ public class GameData
     List<Event> events;
     List<SpaceShip> ships;
     Planet planet;
+    Boolean isEventDone;
 
     private int numActiveShip = 1;
 
@@ -88,4 +89,7 @@ public class GameData
         return lastPosition;
     }
 
+    public Boolean isEventDone() {
+        return isEventDone;
+    }
 }
