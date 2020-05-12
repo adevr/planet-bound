@@ -44,11 +44,10 @@ public class UIText {
                     while (!scanner.hasNextInt());
                     int y = scanner.nextInt();
                     uiAwaitMove(x,y);
-                    return;
                 }else if(game.getState() instanceof AwaitAlientAttack){
                     uiAlienAttack();
                 }else if(game.getState() instanceof AwaitStationDocking){
-
+                    System.out.println("Select Action (1) or (2): ");
                     uiAwaitDocking(scanner.nextInt());
                 }else if(game.getState() instanceof AwaitGameOver){
                     uiAwaitGameOver();

@@ -2,7 +2,6 @@ package logica.estados;
 
 import logica.dados.GameData;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
 public class Landing extends EstadoAdapter
 {

@@ -95,6 +95,7 @@ public class GameData
         int random = (int) (Math.random() * ((5 - 0) + 1));
         events.get(random).handle();
         isEventDone = true;
+        this.planet = generateRandomPlanet();
         return true;
     }
 
