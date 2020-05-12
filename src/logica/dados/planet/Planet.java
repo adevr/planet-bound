@@ -23,7 +23,7 @@ public abstract class Planet {
         return spaceShip;
     }
 
-    public abstract boolean isDockingActionDone();
+    public abstract boolean isDockingActionDone(int action);
 
     // a ideia passa por ter uma comparação de instance of no estado
     // será muito por ai a abordagem

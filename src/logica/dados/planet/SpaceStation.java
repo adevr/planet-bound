@@ -39,8 +39,13 @@ public class SpaceStation {
 
     // repair armor from the ship
 
-    public boolean getActionStatus()
+    public boolean getActionStatus(int action)
     {
+        if(action == 1){
+            this.actionStatus = true;
+        }else{
+            this.actionStatus = false;
+        }
         return this.actionStatus;
     }
 

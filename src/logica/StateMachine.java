@@ -4,7 +4,9 @@ import logica.dados.GameData;
 import logica.estados.AwaitBeggining;
 import logica.estados.IEstado;
 
-public class StateMachine {
+import java.io.Serializable;
+
+public class StateMachine implements Serializable {
 
     private GameData data = new GameData();
     private IEstado state;
@@ -23,37 +25,55 @@ public class StateMachine {
 
     public void play()
     {
-        state.play();
+        setState(state.play());
     }
 
     public void selectSpaceShip(int index)
     {
-        state.selectShip(index);
+        setState(state.selectShip(index));
     }
 
     public void gameOver()
     {
-
+        setState(state.gameOver());
     }
 
     public void doEvent()
     {
-        state.doEvent();
+        setState(state.doEvent());
     }
 
     public void selectPlanetAction()
     {
-        state.selectPlanetAction();
+        setState(state.selectPlanetAction());
     }
 
     public void move(int x, int y)
     {
-        state.move(x, y);
+        setState(state.move(x, y));
+    }
+
+    public void spaceTravel()
+    {
+        setState(state.spaceTravel());
     }
 
     public void doAction(int action)
     {
-        state.doAction(action);
+        setState(state.doAction(action));
+    }
+
+    public void convertResource() {
+        setState(state.convertResource());
+    }
+    
+    public void doAlienAttack(){
+        setState(state.doAlienAttack());
+    }
+
+    @Override
+    public String toString(){
+        return "---> STATE :: " + state.getClass().getSimpleName() + "\n";
     }
 
 }

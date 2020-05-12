@@ -14,8 +14,9 @@ public class AwaitStationDocking extends EstadoAdapter{
 
     @Override
     public IEstado doAction(int action) {
-        if(getGameData().getPlanet().isDockingActionDone()){
+        if(getGameData().getPlanet().isDockingActionDone(action)){
             return new Landing(getGameData());
         }
+        return this;
     }
 }

@@ -25,6 +25,8 @@ public class AwaitMove extends EstadoAdapter
             return new AwaitAlientAttack(getGameData());
 
         if(getGameData().getPlanet().getTerrain().relocateSpaceShip(x, y))
-            return this;
+            return new Landing(getGameData());
+
+        return this;
     }
 }

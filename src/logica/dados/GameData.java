@@ -1,5 +1,6 @@
 package logica.dados;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -11,8 +12,8 @@ import logica.dados.planet.WhitePlanet;
 
 public class GameData
 {
-    List<Event> events;
-    List<SpaceShip> ships;
+    List<Event> events = new ArrayList<Event>();
+    List<SpaceShip> ships = new ArrayList<SpaceShip>();
     Planet planet;
     Boolean isEventDone;
 
@@ -20,8 +21,8 @@ public class GameData
 
     public GameData()
     {
-        this.registerEvents();
         this.registerShips();
+        this.registerEvents();
         this.planet = generateRandomPlanet();
     }
 
@@ -37,8 +38,9 @@ public class GameData
 
     private void registerShips()
     {
-        ships.add(new MilitaryShip());
-        ships.add(new MiningShip());
+        SpaceShip mil = new MilitaryShip();
+        this.ships.add(mil);
+        this.ships.add(new MiningShip());
     }
 
     public List<Event> getEvents()
@@ -90,6 +92,14 @@ public class GameData
     }
 
     public Boolean isEventDone() {
-        return isEventDone;
+        int random = (int) (Math.random() * ((5 - 0) + 1));
+        events.get(random).handle();
+        isEventDone = true;
+        return true;
+    }
+
+    public void resetEventStatus()
+    {
+        this.isEventDone = false;
     }
 }

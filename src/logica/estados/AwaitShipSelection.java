@@ -13,7 +13,7 @@ public class AwaitShipSelection extends EstadoAdapter
 
     @Override
     public IEstado selectShip(int index) {
-        SpaceShip ship  = getGameData().setActiveSpaceShip(index);
+        getGameData().setActiveSpaceShip(index);
         return new AwaitSpaceTravel(getGameData());
     }
 }

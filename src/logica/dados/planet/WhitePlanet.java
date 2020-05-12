@@ -12,9 +12,9 @@ public class WhitePlanet extends Planet{
         this.dockingStation = new SpaceStation(spaceShip);
     }
 
-    public boolean isDockingActionDone()
+    public boolean isDockingActionDone(int action)
     {
-        return this.dockingStation.getActionStatus();
+        return this.dockingStation.getActionStatus(action);
     }
 
 }

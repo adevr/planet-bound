@@ -18,7 +18,9 @@ public class AwaitEvent extends EstadoAdapter
     public IEstado doEvent()
     {
         if(getGameData().isEventDone()) {
+            getGameData().resetEventStatus();
             return new OrbitPlanet(getGameData());
         }
+        return new OrbitPlanet(getGameData());
     }
 }

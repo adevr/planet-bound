@@ -8,5 +8,10 @@ public class RedPlanet extends Planet{
     {
         super(spaceShip);
     }
-    
+
+    @Override
+    public boolean isDockingActionDone(int action) {
+        return true;
+    }
+
 }
