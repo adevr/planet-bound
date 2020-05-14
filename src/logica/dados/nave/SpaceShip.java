@@ -5,15 +5,15 @@ import java.util.Map.Entry;
 
 public abstract class SpaceShip {
 
-    private String[] OFFICERS = {"Captain", "Navigation", "Landing Party", "Shields", "Weapons", "Cargo"};
+    String[] OFFICERS = {"Captain", "Navigation", "Landing Party", "Shields", "Weapons", "Cargo"};
     public boolean isGanhou;
 
     private String name;
-    private Integer fuel;
-    private Integer weapons;
-    private Integer shield;
-    private HashMap<String, Number> cargo;
-    private HashMap<Number, String> crew;
+    Integer fuel;
+    Integer weapons;
+    Integer shield;
+    HashMap<String, Number> cargo;
+    HashMap<Number, String> crew;
     private Boolean resourceConvertionStatus;
 
     public SpaceShip()
@@ -102,4 +102,24 @@ public abstract class SpaceShip {
     {
         return this.resourceConvertionStatus;
     }
+
+    public void removeCargo(int qty){
+        int newQty = (int) this.cargo.get("1") - qty;
+        this.cargo.replace("1", this.cargo.get("1"), newQty);
+    }
+
+    public void addCargo(int qty){
+        int newQty = (int) this.cargo.get("1") + qty;
+        this.cargo.replace("1", this.cargo.get("1"), newQty);
+    }
+
+    public void addCrewMember(int key, String value)
+    {
+        this.crew.put(key, value);
+    }
+
+    public String[] getOFFICERS(){
+        return this.OFFICERS;
+    }
+
 }

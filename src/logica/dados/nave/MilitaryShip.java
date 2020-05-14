@@ -27,5 +27,4 @@ public class MilitaryShip extends SpaceShip
         return emptyCargo;
     }
 
-
 }

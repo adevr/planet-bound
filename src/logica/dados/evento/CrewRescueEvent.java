@@ -10,6 +10,12 @@ public class CrewRescueEvent extends Event
 
     @Override
     public void handle() {
-
+        if(this.ship.getCrew().size()<6){
+            for (int i = 1; i <= 6 ; i++) {
+                if(!this.ship.getCrew().containsKey(i)){
+                    this.ship.addCrewMember(i,this.ship.getOFFICERS()[i-1]);
+                }
+            }
+        }
     }
 }

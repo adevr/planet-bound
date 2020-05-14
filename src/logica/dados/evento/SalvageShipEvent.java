@@ -11,6 +11,6 @@ public class SalvageShipEvent extends Event
 
     @Override
     public void handle() {
-
+        this.ship.addCargo(1);
     }
 }
