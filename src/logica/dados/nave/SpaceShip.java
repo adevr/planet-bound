@@ -1,5 +1,7 @@
 package logica.dados.nave;
 
+import logica.dados.Alien;
+
 import java.util.HashMap;
 import java.util.Map.Entry;
 
@@ -7,6 +9,7 @@ public abstract class SpaceShip {
 
     String[] OFFICERS = {"Captain", "Navigation", "Landing Party", "Shields", "Weapons", "Cargo"};
     public boolean isGanhou;
+    private int lives = 6;
 
     private String name;
     Integer fuel;
@@ -24,6 +27,7 @@ public abstract class SpaceShip {
         this.shield = 0;
         this.cargo = new HashMap<String, Number>();
         this.crew  = new HashMap<Number, String>();
+        setCrew(this.crew);
     }
 
     public Integer getFuel() {
@@ -122,4 +126,28 @@ public abstract class SpaceShip {
         return this.OFFICERS;
     }
 
+    public void expendFuel(int qty)
+    {
+        this.setFuel(this.fuel - qty);
+    }
+
+    public void decrementLives(){
+        this.lives--;
+    }
+
+    public boolean attack(Alien al)
+    {
+        if(this.lives > 0){
+            al.decrementLife();
+        }else return false;
+        return true;
+    }
+
+    public int getLives(){
+        return this.lives;
+    }
+
+    public void resetLives(){
+        this.lives = 6;
+    }
 }

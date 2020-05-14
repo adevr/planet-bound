@@ -12,8 +12,7 @@ public class AwaitAlientAttack extends EstadoAdapter
     @Override
     public IEstado doAlienAttack() {
         int[] position = getGameData().getPlanet().getTerrain().getShipPosition();
-        if(getGameData().getPlanet().getTerrain().getAlien().attack()){
-            // verificar resources
+        if(getGameData().getPlanet().getTerrain().isWrestled()){
             return new AwaitMove(getGameData(), position[0], position[1]);
         }
         return new AwaitGameOver(getGameData());

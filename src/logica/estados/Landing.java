@@ -13,6 +13,9 @@ public class Landing extends EstadoAdapter
     @Override
     public IEstado move(int x, int y)
     {
-        return new AwaitMove(getGameData(), x, y);
+        if(getGameData().isFuelSpent(1)) {
+            return new AwaitMove(getGameData(), x, y);
+        }
+        return this;
     }
 }

@@ -21,7 +21,7 @@ public class OrbitPlanet extends EstadoAdapter
         SpaceShip ship = data.getActiveSpaceShip();
 
         if(planet instanceof WhitePlanet) {
-            if(ship.getCrew().containsKey("Landing Party"))
+            if(ship.getCrew().containsValue("Landing Party"))
                 return new Landing(data);
             else
                 return new AwaitSpaceTravel(data);

@@ -103,4 +103,17 @@ public class GameData
     {
         this.isEventDone = false;
     }
+
+    public Boolean isGameOver()
+    {
+        return (this.getActiveSpaceShip().getFuel() == 0 || this.getActiveSpaceShip().getCrew().size() == 0);
+    }
+
+    public Boolean isFuelSpent(int qty)
+    {
+        if(getActiveSpaceShip().getFuel() > 0){
+            getActiveSpaceShip().expendFuel(qty);
+        }
+        return true;
+    }
 }

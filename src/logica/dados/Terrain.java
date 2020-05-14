@@ -85,4 +85,34 @@ public class Terrain {
         return this.al;
     }
 
+    public boolean isWrestled()
+    {
+        if(this.spaceshipPosition[0]+1 == this.alienPosition[0] || this.spaceshipPosition[1]+1 == this.alienPosition[1]){
+            int prob = (int) (Math.random() * ((5 - 0) + 1));
+            if(prob > 3){
+                this.al.attack(this.spaceShip);
+            }else{
+                this.spaceShip.attack(al);
+            }
+        }
+
+        if(this.al.getLives() == 0){
+            this.terrainMatrix[this.alienPosition[0]][this.alienPosition[1]] = null;
+            int[] spawnPos = spawnAlien();
+            this.alienPosition = spawnPos;
+            this.terrainMatrix[spawnPos[0]][spawnPos[1]] = this.al;
+        }else if(this.spaceShip.getLives() == 0){
+            if(relocateSpaceShip(0,0)){
+                this.spaceShip.resetLives();
+            }
+        }
+        return true;
+    }
+
+    public int[] spawnAlien()
+    {
+        this.al = new Alien();
+        return generateRandomPosition();
+    }
+
 }

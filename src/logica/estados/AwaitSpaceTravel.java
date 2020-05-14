@@ -12,6 +12,9 @@ public class AwaitSpaceTravel extends EstadoAdapter
 
     @Override
     public IEstado spaceTravel() {
-        return new AwaitEvent(getGameData());
+        if(getGameData().isFuelSpent(1)) {
+            return new AwaitEvent(getGameData());
+        }
+        return this;
     }
 }

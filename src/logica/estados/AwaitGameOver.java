@@ -9,6 +9,6 @@ public class AwaitGameOver extends EstadoAdapter {
 
     @Override
     public IEstado gameOver() {
-        return this;
+        return new AwaitBeggining(getGameData());
     }
 }
