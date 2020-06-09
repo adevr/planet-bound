@@ -1,28 +1,28 @@
 package ui.gui;
 
-import logic.StateMachine;
-
-import javax.swing.*;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
+import java.awt.Container;
+import javax.swing.JFrame;
 
 public class GameView extends JFrame {
-    private final Game game;
-    private final PropertyChangeSupport propertyChangeSupport;
+    private final GameModel model;
+    private Container cp;
 
-    public GameView(Game game) {
-        this.game = game;
-        propertyChangeSupport = new PropertyChangeSupport(game);
-    }
+    public GameView(GameModel game) {
+        this(game, 200, 100, 1270, 575);
+    }   
 
-    public void addPropertyChangeListener(PropertyChangeListener listener)
+    public GameView(GameModel game, int x, int y, int width, int height) 
     {
-        propertyChangeSupport.addPropertyChangeListener(listener);
+        super("Planet Bound");
+
+        this.model = game;
+        cp = getContentPane();
+
+        setLocation(x, y); 
+        setSize(width, height); 
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        validate();    
     }
 
-    public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener)
-    {
-        propertyChangeSupport.addPropertyChangeListener(propertyName, listener);
-    }
-    
 }
