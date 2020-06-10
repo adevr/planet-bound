@@ -1,28 +1,41 @@
 package ui.gui;
 
-import java.awt.Container;
-import javax.swing.JFrame;
+import com.sun.glass.ui.Window;
+import logic.StateMachine;
 
-public class GameView extends JFrame {
-    private final GameModel model;
-    private Container cp;
+import java.awt.*;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 
-    public GameView(GameModel game) {
-        this(game, 200, 100, 1270, 575);
-    }   
 
-    public GameView(GameModel game, int x, int y, int width, int height) 
+public class GameView
+{
+    private final StateMachine machine;
+    private final PropertyChangeSupport propertyChangeSupport;
+
+    public GameView(StateMachine machine)
     {
-        super("Planet Bound");
-
-        this.model = game;
-        cp = getContentPane();
-
-        setLocation(x, y); 
-        setSize(width, height); 
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        validate();    
+        this.machine = machine;
+        this.propertyChangeSupport = new PropertyChangeSupport(machine);
     }
 
+    // o argumento recebido por listenar vai passar a fazer parte da colecao de observadores
+    // gerais, geridos pelo objeto propertyCangeSupport, desta classe;
+    public void addPropertyChangeListener(PropertyChangeListener listener)
+    {
+        propertyChangeSupport.addPropertyChangeListener(listener);
+    }
+
+    // o argumento recebido por listener vai passar a fazer parte da colecao de observadores
+    // geridos pelo objeto propertyCangeSupport, desta classe,
+    // IDENTIFICADOS com propertyName,
+    public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener)
+    {
+        propertyChangeSupport.addPropertyChangeListener(propertyName, listener);
+    }
+
+    public PropertyChangeSupport getPropertyChangeSupport()
+    {
+        return propertyChangeSupport;
+    }
 }

@@ -31,4 +31,6 @@ public final class Constants
     public static final Integer EXIT_ACTION = 4;
     public static final Integer EXPLORATION_ACTION= 1;
     public static final Integer SEND_DRONE = 1;
+    public static int DIMX_PANEL_INFO_TEXT = 150;
+    public static int DIMY_PANEL_INFO_TEXT = 200;
 }
