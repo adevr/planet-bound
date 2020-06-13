@@ -1,7 +1,7 @@
 package ui.gui;
 
 import javafx.scene.layout.BorderPane;
-import sample.Main;
+import ui.models.GameView;
 
 public class HomeView extends BorderPane
 {

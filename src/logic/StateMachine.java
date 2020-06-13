@@ -91,4 +91,13 @@ public class StateMachine implements Serializable
         return "---> STATE :: " + state.getClass().getSimpleName() + "\n";
     }
 
+    /**
+     * Get GameData
+     *
+     * @return
+     */
+    public GameData getData()
+    {
+        return data;
+    }
 }

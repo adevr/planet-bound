@@ -1,9 +1,8 @@
-package ui.gui;
+package ui.models;
 
-import com.sun.glass.ui.Window;
+import javafx.stage.Stage;
 import logic.StateMachine;
-
-import java.awt.*;
+import logic.data.GameData;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
@@ -11,6 +10,7 @@ import java.beans.PropertyChangeSupport;
 public class GameView
 {
     private final StateMachine machine;
+    private Stage rootStage;
     private final PropertyChangeSupport propertyChangeSupport;
 
     public GameView(StateMachine machine)
@@ -37,5 +37,19 @@ public class GameView
     public PropertyChangeSupport getPropertyChangeSupport()
     {
         return propertyChangeSupport;
+    }
+
+    public StateMachine getMachine() {
+        return machine;
+    }
+
+    public Stage getRootStage()
+    {
+        return rootStage;
+    }
+
+    public void setRootStage(Stage root)
+    {
+        this.rootStage = root;
     }
 }

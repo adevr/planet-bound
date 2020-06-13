@@ -36,8 +36,8 @@ public class GameData
     {
         if (type.equals("Military"))
             this.activeShip = SpaceShipFactory.buildSpaceShip(type, 35, 2, 1, new int[]{2, 6});
-
-        this.activeShip = SpaceShipFactory.buildSpaceShip(type, 53, 1, 1, new int[]{2,6});
+        else
+            this.activeShip = SpaceShipFactory.buildSpaceShip(type, 53, 1, 1, new int[]{2,6});
     }
 
     /**

@@ -7,12 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
-
-
-import javax.swing.*;
-import java.awt.*;
-import java.io.IOException;
+import javafx.stage.Popup;
+import ui.models.GameView;
 
 public class MainMenu extends HBox
 {
@@ -31,19 +27,22 @@ public class MainMenu extends HBox
 
     public void createButtons()
     {
-        Button buttonChoose = new Button("Escolher Nave");
+        Button buttonChoose = new Button("Jogar");
         buttonChoose.setPrefSize(150, 20);
         buttonChoose.setPadding(new Insets(10, 30, 10, 30)  );
         buttonChoose.setAlignment(Pos.TOP_CENTER);
 
         buttonChoose.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
             @Override
             public void handle(MouseEvent mouseEvent) {
-                try {
-                    getChildren().add(new ChooseShipView(getView()));
-                } catch (IOException e) {
-                    e.printStackTrace();
+                Object node = mouseEvent.getSource();
+                if(node instanceof Button){
+                    Popup selectShip = new ChooseShipView(getView());
+                    if(!selectShip.isShowing()) {
+                        selectShip.show(getScene().getWindow());
+                        view.getMachine().play(1);
+                    }else
+                        selectShip.hide();
                 }
             }
         });
@@ -59,7 +58,8 @@ public class MainMenu extends HBox
         setAlignment(Pos.CENTER);
     }
 
-    public GameView getView() {
+    public GameView getView()
+    {
         return view;
     }
 }

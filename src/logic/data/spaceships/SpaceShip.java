@@ -254,4 +254,9 @@ public abstract class SpaceShip
     {
         this.crew.add(member);
     }
+
+    public int getShields()
+    {
+        return shields;
+    }
 }
