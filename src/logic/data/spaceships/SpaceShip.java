@@ -255,8 +255,33 @@ public abstract class SpaceShip
         this.crew.add(member);
     }
 
+    /**
+     * Get shield quantity
+     *
+     * @return
+     */
     public int getShields()
     {
         return shields;
+    }
+
+    /**
+     * Get weapon Quantity
+     *
+     * @return
+     */
+    public int getArtilary()
+    {
+        return artilary;
+    }
+
+    /**
+     * Get tank quantity
+     *
+     * @return
+     */
+    public int getGasTank()
+    {
+        return gasTank;
     }
 }

@@ -15,6 +15,6 @@ public class ProgressFuelBar extends ProgressBar
         setPrefHeight(50);
 
         // get fuel from game data
-        setProgress(0.74);
+        setProgress(this.view.getMachine().getData().getActiveShip().getGasTank()/100.0);
     }
 }
