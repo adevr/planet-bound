@@ -7,6 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import logic.data.spaceships.MilitaryShip;
+import ui.gui.components.ActionPane;
 import ui.gui.components.BoundImageView;
 import ui.gui.components.CrewControlPane;
 import ui.gui.components.ProgressFuelBar;
@@ -30,6 +31,11 @@ public class GamePanel extends GridPane
         setVgap(20);
         setHgap(20);
         buildPanel();
+        Pane action = new ActionPane(this.view, this, 0);
+        //GridPane.setConstraints(action, 1, 0);
+        GridPane.setConstraints(action, 1, 0, 1, 2);
+
+        getChildren().add(action);
     }
 
     public void buildPanel()

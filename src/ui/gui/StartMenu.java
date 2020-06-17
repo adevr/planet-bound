@@ -10,13 +10,13 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Popup;
 import ui.models.GameView;
 
-public class MainMenu extends HBox
+public class StartMenu extends HBox
 {
 
     private Pane buttonDiv;
     GameView view;
 
-    public MainMenu(GameView view)
+    public StartMenu(GameView view)
     {
         this.view = view;
         setPadding(new Insets(15, 12, 15, 12));
