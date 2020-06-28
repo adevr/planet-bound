@@ -1,5 +1,7 @@
 package ui.gui.components;
 
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -43,8 +45,10 @@ public class LandPane extends GridPane
         earth.setBackground(new Background(bg));
         earth.setGridLinesVisible(true);
         buildGridEarth(earth);
+        Pane menu = menu();
+        GridPane.setConstraints(menu, 0, 1);
         GridPane.setConstraints(earth, 1, 1);
-        getChildren().add(earth);
+        getChildren().addAll(menu, earth, spacer());
     }
 
     public void updateView()
@@ -65,5 +69,31 @@ public class LandPane extends GridPane
                 earth.getChildren().add(block);
             }
         }
+    }
+
+    public Pane spacer()
+    {
+        Pane p = new Pane();
+        p.setPrefHeight(50);
+        GridPane.setConstraints(p, 1, 0);
+        return p;
+    }
+
+    public Pane menu()
+    {
+        Pane menu = new Pane();
+        menu.setPrefWidth(400);
+        menu.setPrefHeight(200);
+        menu.setPadding(new Insets(100, 100, 100, 100));
+        menu.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
+        Button sendDrone = new Button("Send Drone");
+        sendDrone.setLayoutX(180);
+        sendDrone.setLayoutY(200);
+        Button exitOrbit = new Button("Exit Orbit");
+        exitOrbit.setLayoutX(180);
+        exitOrbit.setLayoutY(250);
+
+        menu.getChildren().addAll(sendDrone, exitOrbit);
+        return menu;
     }
 }
