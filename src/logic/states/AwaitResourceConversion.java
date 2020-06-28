@@ -1,6 +1,7 @@
 package logic.states;
 
 import logic.data.GameData;
+import ui.models.AwaitedInteraction;
 
 public class AwaitResourceConversion extends StateAdapter
 {
@@ -16,5 +17,10 @@ public class AwaitResourceConversion extends StateAdapter
             return new AwaitPlanetOrbit(getGameData());
         }
         return new AwaitResourceConversion(getGameData());
+    }
+
+    @Override
+    public AwaitedInteraction getAwaitedInteraction() {
+        return AwaitedInteraction.RESOURCE_CONVERSION;
     }
 }

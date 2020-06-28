@@ -6,14 +6,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import ui.gui.Resources;
-import ui.models.GameView;
+import ui.models.GameObservable;
 import java.io.InputStream;
 
 public class CrewControlPane extends Pane
 {
-    private final GameView view;
+    private final GameObservable view;
 
-    public CrewControlPane(GameView view)
+    public CrewControlPane(GameObservable view)
     {
         super();
         this.view = view;

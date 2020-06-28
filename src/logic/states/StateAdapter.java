@@ -1,6 +1,7 @@
 package logic.states;
 
 import logic.data.GameData;
+import ui.models.AwaitedInteraction;
 
 import java.io.Serializable;
 
@@ -69,5 +70,10 @@ public class StateAdapter implements IState, Serializable {
     @Override
     public IState collect(int choice) {
         return this;
+    }
+
+    @Override
+    public AwaitedInteraction getAwaitedInteraction() {
+        return null;
     }
 }

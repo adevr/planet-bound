@@ -3,6 +3,7 @@ package logic;
 import logic.data.GameData;
 import logic.states.AwaitBeginning;
 import logic.states.IState;
+import ui.models.AwaitedInteraction;
 
 import java.io.Serializable;
 
@@ -99,5 +100,9 @@ public class StateMachine implements Serializable
     public GameData getData()
     {
         return data;
+    }
+
+    public AwaitedInteraction getAwaitedInteraction() {
+        return state.getAwaitedInteraction();
     }
 }

@@ -1,6 +1,5 @@
 package ui.gui.components;
 
-import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,17 +7,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
-import ui.models.GameView;
-
-import javax.swing.border.Border;
+import ui.models.GameObservable;
 
 public class MainMenu extends Pane
 {
 
-    private GameView view;
+    private GameObservable view;
     private GridPane gamePanel;
 
-    public MainMenu(GameView view, GridPane root)
+    public MainMenu(GameObservable view, GridPane root)
     {
         super();
         this.view = view;
@@ -40,7 +37,7 @@ public class MainMenu extends Pane
         start.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                view.getMachine().spaceTravel();
+                view.spaceTravel();
                 ActionPane travelPane = new ActionPane(view, gamePanel, 1);
                 gamePanel.getChildren().remove(2);
                 GridPane.setConstraints(travelPane, 1, 0, 1, 2);
@@ -59,7 +56,7 @@ public class MainMenu extends Pane
         exit.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                view.getMachine().exit(1);
+                view.exit(1);
             }
         });
         return exit;

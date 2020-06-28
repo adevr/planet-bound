@@ -8,15 +8,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Popup;
-import ui.models.GameView;
+import ui.models.GameObservable;
 
 public class StartMenu extends HBox
 {
 
     private Pane buttonDiv;
-    GameView view;
+    GameObservable view;
 
-    public StartMenu(GameView view)
+    public StartMenu(GameObservable view)
     {
         this.view = view;
         setPadding(new Insets(15, 12, 15, 12));
@@ -40,7 +40,7 @@ public class StartMenu extends HBox
                     Popup selectShip = new ChooseShipView(getView());
                     if(!selectShip.isShowing()) {
                         selectShip.show(getScene().getWindow());
-                        view.getMachine().play(1);
+                        view.play(1);
                     }else
                         selectShip.hide();
                 }
@@ -58,7 +58,7 @@ public class StartMenu extends HBox
         setAlignment(Pos.CENTER);
     }
 
-    public GameView getView()
+    public GameObservable getView()
     {
         return view;
     }

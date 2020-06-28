@@ -4,8 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import logic.StateMachine;
-import logic.data.GameData;
-import ui.models.GameView;
+import ui.models.GameObservable;
 import ui.gui.HomeView;
 import ui.gui.Root;
 
@@ -23,7 +22,7 @@ public class Main extends Application
     {
         this.rootStage = stage;
 
-        GameView view = new GameView(new StateMachine());
+        GameObservable view = new GameObservable(new StateMachine());
         Root root = new Root(view, new HomeView(view));
 
         Scene scene = new Scene(root);

@@ -11,14 +11,14 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
-import ui.models.GameView;
+import ui.models.GameObservable;
 
 
 public class ChooseShipView extends Popup
 {
-    private GameView view;
+    private GameObservable view;
 
-    public ChooseShipView(GameView view) {
+    public ChooseShipView(GameObservable view) {
         this.view = view;
         AnchorPane ap = new AnchorPane();
         ap.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
@@ -35,8 +35,8 @@ public class ChooseShipView extends Popup
         military.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                System.out.println("Aqui Military");
-                view.getMachine().chooseShip("Military");
+                //System.out.println("Aqui Military");
+                view.chooseShip("Military");
                 initGamePanel(new GamePanel(view));
                 hide();
             }
@@ -46,7 +46,7 @@ public class ChooseShipView extends Popup
             @Override
             public void handle(MouseEvent mouseEvent) {
                 System.out.println("Aqui Mining");
-                view.getMachine().chooseShip("Mining");
+                view.chooseShip("Mining");
                 hide();
                 initGamePanel(new GamePanel(view));
             }

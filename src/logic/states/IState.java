@@ -1,6 +1,6 @@
 package logic.states;
 
-import java.time.chrono.IsoChronology;
+import ui.models.AwaitedInteraction;
 
 public interface IState
 {
@@ -16,4 +16,5 @@ public interface IState
     IState explore(int choice);
     IState move(int key);
     IState collect(int choice);
+    AwaitedInteraction getAwaitedInteraction();
 }

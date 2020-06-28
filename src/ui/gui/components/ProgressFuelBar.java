@@ -1,13 +1,13 @@
 package ui.gui.components;
 
 import javafx.scene.control.ProgressBar;
-import ui.models.GameView;
+import ui.models.GameObservable;
 
 public class ProgressFuelBar extends ProgressBar
 {
-    private GameView view;
+    private GameObservable view;
 
-    public ProgressFuelBar(GameView view)
+    public ProgressFuelBar(GameObservable view)
     {
         super();
         this.view = view;

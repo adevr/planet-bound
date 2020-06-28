@@ -2,6 +2,7 @@ package logic.states;
 
 import logic.data.Constants;
 import logic.data.GameData;
+import ui.models.AwaitedInteraction;
 
 public class AwaitLanding extends StateAdapter
 {
@@ -17,5 +18,10 @@ public class AwaitLanding extends StateAdapter
             return new AwaitTerrainExploration(getGameData());
         }
         return new AwaitPlanetOrbit(getGameData());
+    }
+
+    @Override
+    public AwaitedInteraction getAwaitedInteraction() {
+        return AwaitedInteraction.LANDING;
     }
 }

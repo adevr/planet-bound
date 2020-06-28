@@ -8,14 +8,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Popup;
-import ui.models.GameView;
+import ui.models.GameObservable;
 
 
 public class PlanetOrbitPopup extends Popup
 {
-    private GameView view;
+    private GameObservable view;
 
-    public PlanetOrbitPopup(GameView observable)
+    public PlanetOrbitPopup(GameObservable observable)
     {
         super();
         this.view = observable;
@@ -42,7 +42,7 @@ public class PlanetOrbitPopup extends Popup
         dock.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                view.getMachine().enterPlanet(1);
+                view.enterPlanet(1);
                 hide();
             }
         });
@@ -59,7 +59,7 @@ public class PlanetOrbitPopup extends Popup
         landing.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                view.getMachine().enterPlanet(2);
+                view.enterPlanet(2);
                 hide();
             }
         });
@@ -76,7 +76,7 @@ public class PlanetOrbitPopup extends Popup
         convert.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                view.getMachine().enterPlanet(3);
+                view.enterPlanet(3);
                 hide();
             }
         });
@@ -93,7 +93,7 @@ public class PlanetOrbitPopup extends Popup
         skip.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                view.getMachine().enterPlanet(4);
+                view.enterPlanet(4);
                 hide();
             }
         });

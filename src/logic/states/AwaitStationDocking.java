@@ -1,6 +1,7 @@
 package logic.states;
 
 import logic.data.GameData;
+import ui.models.AwaitedInteraction;
 
 public class AwaitStationDocking  extends StateAdapter
 {
@@ -15,5 +16,10 @@ public class AwaitStationDocking  extends StateAdapter
             return new AwaitPlanetOrbit(getGameData());
         }
         return new AwaitStationDocking(getGameData());
+    }
+
+    @Override
+    public AwaitedInteraction getAwaitedInteraction() {
+        return AwaitedInteraction.DOCKING_STATION;
     }
 }

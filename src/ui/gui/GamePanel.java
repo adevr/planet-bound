@@ -11,14 +11,14 @@ import ui.gui.components.ActionPane;
 import ui.gui.components.BoundImageView;
 import ui.gui.components.CrewControlPane;
 import ui.gui.components.ProgressFuelBar;
-import ui.models.GameView;
+import ui.models.GameObservable;
 
 public class GamePanel extends GridPane
 {
-    private GameView view;
+    private GameObservable view;
     private ImageView ship;
 
-    public GamePanel(GameView view)
+    public GamePanel(GameObservable view)
     {
         this.view = view;
         Image image = new Image(Resources.getResourceFile("resources\\bg-panel.jpg"));

@@ -6,15 +6,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import ui.gui.components.BoundImageView;
-import ui.models.GameView;
+import ui.models.GameObservable;
 
 
 public class BackgroundMenu extends HBox
 {
-    private GameView view;
+    private GameObservable view;
     private Image pic;
 
-    public BackgroundMenu(GameView view)
+    public BackgroundMenu(GameObservable view)
     {
         this.view = view;
         Pane background = new Pane();
