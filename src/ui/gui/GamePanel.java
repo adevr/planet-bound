@@ -7,10 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import logic.data.spaceships.MilitaryShip;
-import ui.gui.components.ActionPane;
-import ui.gui.components.BoundImageView;
-import ui.gui.components.CrewControlPane;
-import ui.gui.components.ProgressFuelBar;
+import ui.gui.components.*;
 import ui.models.GameObservable;
 
 public class GamePanel extends GridPane
@@ -21,8 +18,8 @@ public class GamePanel extends GridPane
     public GamePanel(GameObservable view)
     {
         this.view = view;
-        Image image = new Image(Resources.getResourceFile("resources\\bg-panel.jpg"));
-        BackgroundImage bg = new BackgroundImage(new Image(Resources.getResourceFile("resources\\bg-panel.jpg")),
+        Image image = new Image(Resources.getResourceFile("resources/bg-panel.jpg"));
+        BackgroundImage bg = new BackgroundImage(new Image(Resources.getResourceFile("resources/bg-panel.jpg")),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
                 BackgroundSize.DEFAULT);
 
@@ -31,11 +28,10 @@ public class GamePanel extends GridPane
         setVgap(20);
         setHgap(20);
         buildPanel();
-        Pane action = new ActionPane(this.view, this, 0);
-        //GridPane.setConstraints(action, 1, 0);
+        ActionPane action = new ActionPane(this.view);
         GridPane.setConstraints(action, 1, 0, 1, 2);
-
         getChildren().add(action);
+
     }
 
     public void buildPanel()
@@ -51,7 +47,7 @@ public class GamePanel extends GridPane
         pb.setLayoutX(20);
         pb.setLayoutY(20);
 
-        ImageView iv = new BoundImageView(new Image(Resources.getResourceFile("resources\\fuel.png")), 20, 20);
+        ImageView iv = new BoundImageView(new Image(Resources.getResourceFile("resources/fuel.png")), 20, 20);
         iv.setLayoutX(pb.getPrefWidth() + 25);
         iv.setLayoutY(30);
 
@@ -63,7 +59,7 @@ public class GamePanel extends GridPane
         crewPane.setLayoutX(20);
         crewPane.setLayoutY(280);
 
-        ImageView teamI = new BoundImageView( new Image(Resources.getResourceFile("resources\\team.png")), 20, 20 );
+        ImageView teamI = new BoundImageView( new Image(Resources.getResourceFile("resources/team.png")), 20, 20 );
         teamI.setLayoutY(285);
         teamI.setLayoutX(265);
 
@@ -85,7 +81,7 @@ public class GamePanel extends GridPane
         parentBlock2.setLayoutX(20);
         parentBlock2.setLayoutY(160);
 
-        ImageView iv = new BoundImageView(new Image(Resources.getResourceFile("resources\\cargoIcon.png")), 30, 25);
+        ImageView iv = new BoundImageView(new Image(Resources.getResourceFile("resources/cargoIcon.png")), 30, 25);
         iv.setLayoutX(265);
         iv.setLayoutY(130);
         control.getChildren().addAll(parentBlock, parentBlock2, iv);
@@ -108,7 +104,7 @@ public class GamePanel extends GridPane
         int space = 40;
         for(int i = 0; i < this.view.getMachine().getData().getActiveShip().getShields() ; i++){
             Pane block = newBlock(40, 40, space, i);
-            ImageView iv = new BoundImageView(new Image(Resources.getResourceFile("resources\\shield.png")), 40, 40);
+            ImageView iv = new BoundImageView(new Image(Resources.getResourceFile("resources/shield.png")), 40, 40);
             iv.setTranslateY(2);
             iv.setTranslateX(1);
 
@@ -126,7 +122,7 @@ public class GamePanel extends GridPane
         int space = 40;
         for(int i = 0; i < this.view.getMachine().getData().getActiveShip().getArtilary() ; i++){
             Pane block = newBlock(40, 40, space, i);
-            ImageView iv = new BoundImageView(new Image(Resources.getResourceFile("resources\\gun.png")), 40, 40);
+            ImageView iv = new BoundImageView(new Image(Resources.getResourceFile("resources/gun.png")), 40, 40);
             iv.setTranslateY(2);
             iv.setTranslateX(1);
 
@@ -157,14 +153,16 @@ public class GamePanel extends GridPane
         ship.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         if(this.view.getMachine().getData().getActiveShip() instanceof MilitaryShip)
-            this.ship = new BoundImageView( new Image(Resources.getResourceFile("resources\\militaryship.png")), 200, 150 );
+            this.ship = new BoundImageView( new Image(Resources.getResourceFile("resources/militaryship.png")), 200, 150 );
         else
-            this.ship = new BoundImageView( new Image(Resources.getResourceFile("resources\\miningship.png")), 200, 150 );
+            this.ship = new BoundImageView( new Image(Resources.getResourceFile("resources/miningship.png")), 200, 150 );
 
         this.ship.setLayoutX(50);
         ship.getChildren().add(this.ship);
         GridPane.setConstraints(ship, 0, 1);
         getChildren().add(ship);
     }
+
+
 
 }

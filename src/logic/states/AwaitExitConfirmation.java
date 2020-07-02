@@ -12,9 +12,15 @@ public class AwaitExitConfirmation extends StateAdapter
     @Override
     public IState exit(int choice)
     {
-        if(choice == 1)
-            System.exit(0);
+        if(choice == 1) {
+            System.exit(1);
+            Runtime.getRuntime().addShutdownHook(new Thread(this::close));
+        }
 
         return new AwaitBeginning(getGameData());
+    }
+
+    public void close() {
+        System.exit(1);
     }
 }

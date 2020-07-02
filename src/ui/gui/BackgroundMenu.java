@@ -21,7 +21,7 @@ public class BackgroundMenu extends HBox
         background.setPrefWidth(375);
         background.setPrefHeight(640);
         background.setPadding(new Insets(10));
-        Image image = new Image(Resources.getResourceFile("resources\\headImage.jpg"));
+        Image image = new Image(Resources.getResourceFile("resources/headImage.jpg"));
 
         if(image != null)
         {

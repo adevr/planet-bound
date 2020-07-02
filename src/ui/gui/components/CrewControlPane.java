@@ -26,7 +26,7 @@ public class CrewControlPane extends Pane
             childPane.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
             childPane.setLayoutX(40*i);
 
-            ImageView iv = getOfficerImage(Resources.getResourceFile("resources\\"+this.view.getMachine().getData().getActiveShip().getCrew().get(i)+".png"));
+            ImageView iv = getOfficerImage(Resources.getResourceFile("resources/"+this.view.getMachine().getData().getActiveShip().getCrew().get(i)+".png"));
             childPane.getChildren().add(iv);
             getChildren().add(childPane);
         }

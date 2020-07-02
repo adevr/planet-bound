@@ -3,6 +3,8 @@ package ui.models;
 import javafx.stage.Stage;
 import logic.StateMachine;
 import logic.data.GameData;
+import logic.data.planets.existingThings.Terrain;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
@@ -80,13 +82,13 @@ public class GameObservable
     public void enterPlanet(int choice)
     {
         machine.enterPlanet(choice);
-        propertyChangeSupport.firePropertyChange( null, null, null);
+        propertyChangeSupport.firePropertyChange( null, false, true);
     }
 
     public void spaceTravel()
     {
         machine.spaceTravel();
-        propertyChangeSupport.firePropertyChange( null, null, null);
+        propertyChangeSupport.firePropertyChange( null, false, true);
     }
 
     public void convertResource(int[] choice, String convertTo){
@@ -128,4 +130,16 @@ public class GameObservable
     {
         return machine.getAwaitedInteraction();
     }
+
+    public int[] getDroneCoordinates()
+    {
+        return machine.getData().getActivePlanet().getExplorablePath().getDronePosition();
+    }
+
+    public Terrain getExplorablePath()
+    {
+        return machine.getData().getActivePlanet().getExplorablePath();
+    }
+
+
 }

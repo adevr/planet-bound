@@ -29,8 +29,8 @@ public class ChooseShipView extends Popup
         lb.setLayoutX(180);
         lb.setLayoutY(10);
 
-        ImageView military = setImageView("resources\\militaryship.png", 30, 30);
-        ImageView mining = setImageView("resources\\miningship.png", 250, 30);
+        ImageView military = setImageView("resources/militaryship.png", 30, 30);
+        ImageView mining = setImageView("resources/miningship.png", 250, 30);
 
         military.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

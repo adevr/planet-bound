@@ -1,6 +1,7 @@
 package logic.states;
 
 import logic.data.GameData;
+import ui.models.AwaitedInteraction;
 
 public class AwaitShipSelection extends StateAdapter
 {
@@ -16,4 +17,8 @@ public class AwaitShipSelection extends StateAdapter
         return new AwaitSpaceTravel(getGameData());
     }
 
+    @Override
+    public AwaitedInteraction getAwaitedInteraction() {
+        return AwaitedInteraction.SPACE_TRAVEL;
+    }
 }
